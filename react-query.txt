@@ -1,0 +1,73 @@
+Journey through React-Query
+1.What is React-Query?
+Ans--React Query is a powerful data-fetching library for React applications. It helps in fetching, caching, synchronizing, and updating server-state efficiently.
+
+
+2.Why Use React Query?
+Automatic caching: No need to manually store API responses.
+Background refetching: Data stays fresh.
+Optimistic updates: Improves user experience.
+Pagination & infinite scrolling: Built-in support.
+Error handling: Streamlined error management.
+
+----steps to use react query---
+1. Create a react app.
+2. install react query or tanstack/react-query using command, npm install @tanstack/react-query
+3. Wrap the main component using QueryClientProvider, also it expect an attribute called client which looks like below
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <YourComponent />
+    </QueryClientProvider>
+  );
+}
+
+
+4. make function to call API
+when wrap that function by useQuery imported from @tanstack/react-query;
+- react-query handles the data, isLoading and error state by itself.
+2. While wrapping the function with useQuery, need to pass some key-value pairs for example,
+    queryKey,-  which is like  name or unique identifier 
+    queryFn - which expects the function as a value
+
+
+---- Hook in TanStack react-query-
+1. useQuery() - this is for fetching data from api 
+2.useMutation  - as name suggest - this is used for altering the data - (adding, updating, or deleting).
+
+
+
+=======================================================================================================
+************ json-server ** this gives you the api endpoints...
+  To make an api like endpointes install npm json-server
+  - to install run command- npm i json-server
+  - create a json file what ever you like,
+  -run a command $ npx json-server db.json(name of json file) and it will create endpoints for you.
+  -You would be all set to use those endpoints using any routes either put, post, get, delete 
+
+===========================================================================================
+Stale Data vs. Fresh Data in React Query
+In React Query, data can either be fresh or stale, and this affects how React Query decides when to refetch it.
+
+1. Fresh Data
+✅ Fresh data is data that React Query considers up-to-date, so it doesn’t need to refetch it.
+✅ It remains fresh for the duration specified in staleTime.
+✅ If you access fresh data, React Query immediately returns it from the cache without making a new API call
+
+
+2. Stale Data
+⚠️ Stale data is data that React Query considers outdated, meaning it might need to be refreshed.
+⚠️ When data becomes stale, React Query may automatically refetch it in the background (e.g., when the user refocuses the tab).
+⚠️ The default staleTime in React Query is 0, meaning data is considered stale immediately after fetching.
+
+
+
+
+
+
+
