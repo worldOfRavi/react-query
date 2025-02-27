@@ -299,6 +299,35 @@
       "tags": [
         "classic"
       ]
+    },
+    {
+      "id": 38,
+      "title": "New post loaded",
+      "tags": [
+        "fiction"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Another New Post is loaded",
+      "tags": [
+        "english",
+        "french"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "new post",
+      "tags": [
+        "classic"
+      ]
+    },
+    {
+      "id": 41,
+      "title": "new post",
+      "tags": [
+        "mystery"
+      ]
     }
   ],
   "tags": [
